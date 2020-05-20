@@ -1,17 +1,18 @@
-# StructuredFormatter
-A more structured formatter for python's argparse module.
+# argformat
+Provides a more structured formatter for python's argparse module.
 
 ## Installation
 ```
-pip install TODO
+pip install argformat
 ```
 
 ## Usage
-Simply set the StructuredFormatter as the argparse `formatter_class`:
+Simply import the `StructuredFormatter` and set it as the argparse `formatter_class`:
 
+### Example
 ```python
 import argparse
-from TODO import StructuredFormatter
+from argformat import StructuredFormatter
 
 # Parse arguments
 parser = argparse.ArgumentParser(
