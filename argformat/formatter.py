@@ -11,7 +11,7 @@ class StructuredFormatter(argparse.RawTextHelpFormatter):
             width = os.get_terminal_size(0).columns
 
         # Call super with infinite max_help_position
-        super(TextHelpFormatter, self).__init__(
+        super().__init__(
             prog,
             indent_increment=indent_increment,
             max_help_position=float('inf'),
@@ -26,7 +26,7 @@ class StructuredFormatter(argparse.RawTextHelpFormatter):
     def add_argument(self, action):
         """Override: computes maximum length of default"""
         # Call super
-        result = super(TextHelpFormatter, self).add_argument(action)
+        result = super().add_argument(action)
         # Increment _default_max_length
         if action.default and action.nargs != 0:
             self._default_max_length = max(self._default_max_length,
@@ -47,7 +47,7 @@ class StructuredFormatter(argparse.RawTextHelpFormatter):
         """Add (default=<default>) to action if any"""
 
         # Format actions regularly
-        result = super(TextHelpFormatter, self)._format_action(action)
+        result = super()._format_action(action)
 
         # Add default if any
         if action.default and action.nargs != 0:
