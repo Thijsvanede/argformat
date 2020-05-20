@@ -4,14 +4,14 @@ with open("README.md", "r") as fh:
     long_description = fh.read()
 
 setuptools.setup(
-    name="argparse-formatter",
+    name="argformat",
     version="0.0.1",
     author="Thijs van Ede",
     author_email="t.s.vanede@utwente.nl",
     description="Provides a structured formatter for the argparse module",
     long_description=long_description,
     long_description_content_type="text/markdown",
-    url="https://github.com/Thijsvanede/StructuredFormatter",
+    url="https://github.com/Thijsvanede/argformat",
     packages=setuptools.find_packages(),
     classifiers=[
         "Programming Language :: Python :: 3",
