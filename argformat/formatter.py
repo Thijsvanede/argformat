@@ -8,7 +8,10 @@ class StructuredFormatter(argparse.RawTextHelpFormatter):
         """Format text without description on newline"""
         # Bugfix for argparse which does not comput column width properly
         if width is None:
-            width = os.get_terminal_size(0).columns
+            try:
+                width = os.get_terminal_size(0).columns
+            except OSError:
+                width = None
 
         # Call super with infinite max_help_position
         super().__init__(
