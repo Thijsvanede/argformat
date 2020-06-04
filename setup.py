@@ -5,7 +5,7 @@ with open("README.md", "r") as fh:
 
 setuptools.setup(
     name="argformat",
-    version="0.0.1",
+    version="0.0.2",
     author="Thijs van Ede",
     author_email="t.s.vanede@utwente.nl",
     description="Provides a structured formatter for the argparse module",
