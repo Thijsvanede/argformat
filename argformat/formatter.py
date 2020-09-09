@@ -53,7 +53,21 @@ class StructuredFormatter(argparse.RawTextHelpFormatter):
         result = super()._format_action(action)
 
         # Add default if any
-        if action.default and action.nargs != 0:
+        if action.nargs == '?':
+            result = result.split('\n')
+            space =  self._help_max_length + self._action_max_length + self._current_indent
+            if space + self._default_max_length + 12 <= self._width:
+                result[-2] = result[-2] + '{} (optional)'  .format(
+                    ' '*max(0, space - len(result[-2]))
+                )
+            else:
+                space = self._width - 12 - self._default_max_length
+                result[-1] = result[-1] + '{}(optional)\n'.format(
+                    ' '*max(1, space)
+                )
+            result = '\n'.join(result)
+
+        elif action.default and action.nargs != 0:
             result = result.split('\n')
             space =  self._help_max_length + self._action_max_length + self._current_indent
             if space + self._default_max_length + 12 <= self._width:
